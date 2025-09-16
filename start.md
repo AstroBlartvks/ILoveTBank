@@ -1,9 +1,10 @@
 # T-Bank Logo Detection API - Docker запуск
 
-## Быстрый запуск одной командой
+## Быстрый запуск одной командой из Docker Hub 
 
 ```bash
-docker-compose up --build -d
+# Придется подождать. пока скачает образ (8 Гб)
+docker run -p 8000:8000 astroblartvks/model-tbank-logo-api:latest
 ```
 
 ## Проверка работы API
@@ -24,7 +25,7 @@ docker-compose down
 ## Альтернативный запуск через Docker
 
 ```bash
-# Сборка образа
+# Сборка образа, НО СНАЧАЛА СКАЧАТЬ model.pt, см. README.md
 docker build -t tbank-logo-api .
 
 # Запуск контейнера
@@ -42,3 +43,4 @@ curl -X POST "http://localhost:8000/detect" \
 
 
 ```
+
