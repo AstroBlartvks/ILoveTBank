@@ -1,0 +1,47 @@
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env
+pip-log.txt
+pip-delete-this-directory.txt
+.tox
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.git
+.mypy_cache
+.pytest_cache
+.hypothesis
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Dataset files (too large for Docker build)
+dataset/
+dataset.zip
+*.zip
+
+# Model checkpoints and runs
+runs/
+yolo11n.pt
+yolo11x.pt
+
+# Test files
+test.ipynb
+mark.ipynb
+
+# Screenshots and temporary files
+*.png
+*.jpg
+*.jpeg
+image_*.png
+
+# Validation results
+validation_results/
+validation_data/

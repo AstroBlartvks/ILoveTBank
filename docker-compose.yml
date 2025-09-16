@@ -1,0 +1,24 @@
+services:
+  tbank-logo-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tbank-logo-detection
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/docs"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    restart: unless-stopped
+    volumes:
+      # Optional: mount validation results directory
+      - ./validation_results:/app/validation_results:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.tbank-api.rule=Host(`localhost`)"
+      - "traefik.http.services.tbank-api.loadbalancer.server.port=8000"
